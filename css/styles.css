@@ -26,14 +26,12 @@ img {
   display: block;
 }
 
-/* ====================== CONTAINER ====================== */
 .container {
   max-width: 1158px;
   margin: 0 auto;
   padding: 0 15px;
 }
 
-/* ====================== HEADER ====================== */
 .header {
   background-color: #fff;
   border-bottom: 1px solid #e7e9fc;
@@ -42,12 +40,12 @@ img {
 .header-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .header-logo-wrapper {
   display: flex;
   align-items: center;
+  margin-right: 76px;
 }
 
 .logo {
@@ -89,6 +87,7 @@ img {
 
 .header-address {
   font-style: normal;
+  margin-left: auto;
 }
 
 .header-address-list {
@@ -111,7 +110,6 @@ img {
   color: #404bbf;
 }
 
-/* ====================== HERO ====================== */
 .hero {
   background-color: #2e2f42;
   padding: 188px 0;
@@ -147,7 +145,6 @@ img {
   background-color: #404bbf;
 }
 
-/* ====================== FEATURES ====================== */
 .features {
   padding: 120px 0;
 }
@@ -178,7 +175,6 @@ img {
   color: #434455;
 }
 
-/* ====================== TEAM ====================== */
 .team {
   padding: 120px 0;
   background: #f4f4fd;
@@ -211,7 +207,6 @@ img {
   padding: 32px 16px;
 }
 
-/* ====================== PORTFOLIO ====================== */
 .portfolio {
   padding: 120px 0;
 }
@@ -244,7 +239,6 @@ img {
   padding: 32px 16px;
 }
 
-/* ====================== FOOTER ====================== */
 .footer {
   background-color: #2e2f42;
   padding: 100px 0;
@@ -277,7 +271,6 @@ img {
   text-align: left;
 }
 
-/* ====================== VISUALLY HIDDEN ====================== */
 .visually-hidden {
   position: absolute;
   width: 1px;
