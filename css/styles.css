@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
 }
+
 h1,
 h2,
 h3,
@@ -25,16 +26,17 @@ img {
   display: block;
 }
 
+/* ====================== CONTAINER ====================== */
 .container {
   max-width: 1158px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 15px; /* горизонтальні відступи, щоб контент не торкався країв */
 }
 
 /* ====================== HEADER ====================== */
 .header {
-  padding: 24px 0;
   background-color: #fff;
+  border-bottom: 1px solid #e7e9fc; /* нижня межа */
 }
 
 .header-wrapper {
@@ -56,6 +58,8 @@ img {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #2e2f42;
+  display: block;
+  padding: 24px 0; /* вертикальні відступи формують висоту header */
 }
 
 .web-accent {
@@ -65,10 +69,7 @@ img {
 .header-list {
   display: flex;
   align-items: center;
-}
-
-.header-item + .header-item {
-  margin-left: 40px;
+  gap: 40px; /* замість + .header-item */
 }
 
 .header-link {
@@ -77,6 +78,8 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #2e2f42;
+  display: block;
+  padding: 24px 0; /* вертикальні відступи формують висоту header */
 }
 
 .header-link:hover,
@@ -91,10 +94,7 @@ img {
 .header-address-list {
   display: flex;
   align-items: center;
-}
-
-.header-address-list li + li {
-  margin-left: 40px; /* B3 */
+  gap: 40px;
 }
 
 .header-address-link {
@@ -102,6 +102,8 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #434455;
+  display: block;
+  padding: 24px 0;
 }
 
 .header-address-link:hover,
@@ -112,20 +114,17 @@ img {
 /* ====================== HERO ====================== */
 .hero {
   background-color: #2e2f42;
-  padding: 192px 0;
+  padding: 188px 0; /* типове значення для цієї секції */
   text-align: center;
 }
 
 .hero-title {
-  padding-right: 316px;
-  padding-left: 316px;
-  padding-bottom: 40px;
-  padding-top: 0;
+  max-width: 496px; /* коректне обмеження ширини */
+  margin: 0 auto 40px; /* центровка + правильний відступ до кнопки */
   font-weight: 700;
   font-size: 56px;
   line-height: 1.07143;
   letter-spacing: 0.02em;
-  text-align: center;
   color: #fff;
   font-family: "Roboto", sans-serif;
 }
@@ -139,8 +138,6 @@ img {
   line-height: 1.5;
   color: #fff;
   font-family: "Roboto", sans-serif;
-  width: 169px;
-  height: 56px;
   border: 0;
   cursor: pointer;
 }
@@ -155,23 +152,9 @@ img {
   padding: 120px 0;
 }
 
-.features-title {
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.11;
-  letter-spacing: 0.02em;
-  color: #2e2f42;
-  text-align: center;
-  margin-bottom: 72px;
-}
-
 .features-list {
   display: flex;
-  justify-content: space-between;
-}
-
-.features-item + .features-item {
-  margin-left: 24px;
+  gap: 24px; /* рівномірні відступи без зайвих margin */
 }
 
 .title {
@@ -204,18 +187,22 @@ img {
   letter-spacing: 0.02em;
   text-align: center;
   color: #2e2f42;
-  margin: 0 0 72px 0;
+  margin-bottom: 72px;
 }
 
 .team-list {
   display: flex;
-  justify-content: space-between; /* елементи в колонках, рівномірно */
+  gap: 24px;
 }
 
 .team-item {
   background-color: #ffffff;
   text-align: center;
+  border-radius: 0 0 4px 4px; /* скруглення тільки знизу */
+  overflow: hidden;
+  flex-basis: calc((100% - 72px) / 4); /* рівна ширина для 4 карток */
 }
+
 .team-item-text {
   padding: 32px 16px;
 }
@@ -238,15 +225,16 @@ img {
 .portfolio-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 24px; /* рівномірні відступи по горизонталі та вертикалі */
 }
 
 .portfolio-item {
-  margin-bottom: 48px;
   border-bottom: 1px solid #e7e9fc;
   border-left: 1px solid #e7e9fc;
   border-right: 1px solid #e7e9fc;
+  flex-basis: calc((100% - 48px) / 3); /* рівна ширина для 3 колонок */
 }
+
 .portfolio-item-text {
   padding: 32px 16px;
 }
@@ -260,7 +248,7 @@ img {
 .footer-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: flex-start; /* вирівнювання вліво */
   gap: 16px;
 }
 
@@ -286,7 +274,9 @@ img {
 /* ====================== VISUALLY HIDDEN ====================== */
 .visually-hidden {
   position: absolute;
+  width: 1px;
   height: 1px;
+  margin: -1px;
   border: 0;
   padding: 0;
   white-space: nowrap;
