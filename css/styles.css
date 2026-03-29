@@ -30,13 +30,13 @@ img {
 .container {
   max-width: 1158px;
   margin: 0 auto;
-  padding: 0 15px; /* додано горизонтальні внутрішні відступи */
+  padding: 0 15px;
 }
 
 /* ====================== HEADER ====================== */
 .header {
   background-color: #fff;
-  border-bottom: 1px solid #e7e9fc; /* додано нижню межу */
+  border-bottom: 1px solid #e7e9fc;
 }
 
 .header-wrapper {
@@ -59,7 +59,7 @@ img {
   text-transform: uppercase;
   color: #2e2f42;
   display: block;
-  padding: 24px 0; /* вертикальні відступи формують висоту */
+  padding: 24px 0;
 }
 
 .web-accent {
@@ -69,10 +69,7 @@ img {
 .header-list {
   display: flex;
   align-items: center;
-}
-
-.header-item + .header-item {
-  margin-left: 40px;
+  gap: 40px;
 }
 
 .header-link {
@@ -82,7 +79,7 @@ img {
   letter-spacing: 0.02em;
   color: #2e2f42;
   display: block;
-  padding: 24px 0; /* вертикальні відступи для навігації */
+  padding: 24px 0;
 }
 
 .header-link:hover,
@@ -97,10 +94,7 @@ img {
 .header-address-list {
   display: flex;
   align-items: center;
-}
-
-.header-address-list li + li {
-  margin-left: 40px;
+  gap: 40px;
 }
 
 .header-address-link {
@@ -109,7 +103,7 @@ img {
   letter-spacing: 0.02em;
   color: #434455;
   display: block;
-  padding: 24px 0; /* вертикальні відступи для контактів */
+  padding: 24px 0;
 }
 
 .header-address-link:hover,
@@ -120,13 +114,13 @@ img {
 /* ====================== HERO ====================== */
 .hero {
   background-color: #2e2f42;
-  padding: 188px 0; /* виправлено вертикальний padding Hero */
+  padding: 188px 0;
   text-align: center;
 }
 
 .hero-title {
-  max-width: 496px; /* обмеження ширини через max-width */
-  margin: 0 auto 40px; /* правильний відступ між заголовком і кнопкою */
+  max-width: 496px;
+  margin: 0 auto 48px;
   font-weight: 700;
   font-size: 56px;
   line-height: 1.07143;
@@ -160,7 +154,11 @@ img {
 
 .features-list {
   display: flex;
-  gap: 24px; /* замінено space-between + margin на gap */
+  gap: 24px;
+}
+
+.features-item {
+  flex-basis: calc((100% - 72px) / 4);
 }
 
 .title {
@@ -198,13 +196,13 @@ img {
 
 .team-list {
   display: flex;
-  gap: 24px; /* замінено space-between на gap */
+  gap: 24px;
 }
 
 .team-item {
   background-color: #ffffff;
   text-align: center;
-  border-radius: 0 0 4px 4px; /* додано скруглення нижніх кутів */
+  border-radius: 0 0 4px 4px;
   overflow: hidden;
   flex-basis: calc((100% - 72px) / 4);
 }
@@ -231,14 +229,15 @@ img {
 .portfolio-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px; /* замінено space-between + margin-bottom на gap */
+  column-gap: 24px;
+  row-gap: 48px;
 }
 
 .portfolio-item {
-  border-bottom: 1px solid #e7e9fc;
-  border-left: 1px solid #e7e9fc;
-  border-right: 1px solid #e7e9fc;
   flex-basis: calc((100% - 48px) / 3);
+  border: 1px solid #e7e9fc;
+  overflow: hidden;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-item-text {
@@ -254,7 +253,7 @@ img {
 .footer-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* виправлено вирівнювання */
+  align-items: flex-start;
   gap: 16px;
 }
 
@@ -266,6 +265,7 @@ img {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #f4f4fd;
+  padding: 0;
 }
 
 .footer-text {
