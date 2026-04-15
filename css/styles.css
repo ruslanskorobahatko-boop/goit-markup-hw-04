@@ -46,12 +46,16 @@ body {
 .header {
   background-color: #fff;
   border-bottom: 1px solid #e7e9fc;
+  box-shadow:
+    0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16),
+    0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
 .header-wrapper {
   display: flex;
   align-items: center;
-  min-height: 72px; /* добавил для стабильности */
+  min-height: 72px;
 }
 
 .header-logo-wrapper {
@@ -92,7 +96,6 @@ body {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover + Focus + Active состояние */
 .header-link:hover,
 .header-link:focus,
 .header-link.active {
@@ -103,16 +106,19 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  bottom: 0;
-  width: 0;
+  bottom: -1px;
+  width: 100%;
   height: 4px;
   background-color: #404bbf;
   border-radius: 2px;
-  transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-link:hover::after,
-.header-link:focus::after,
+.header-link:focus::after {
+  width: 100%;
+  transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .header-link.active::after {
   width: 100%;
 }
@@ -149,22 +155,15 @@ body {
   background-color: #2e2f42;
   background-image:
     linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
-    url("../images/hero-bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  min-height: 600px;
-  padding: 188px 0;
-  text-align: center;
-
-  background-image:
-    linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
     url("/images/people-office.png");
 
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  width: 100%;
+  min-height: 600px;
+  padding: 188px 0;
+  text-align: center;
 }
 
 .hero-title {
@@ -246,34 +245,50 @@ body {
   margin-bottom: 8px;
 }
 
-.social-links {
+/* ====================== SOCIAL LINKS IN TEAM ====================== */
+.icongroup-socmedia-1 {
   display: flex;
-  gap: 4px;
-  flex-shrink: 0;
-  align-self: flex-end;
+  align-items: center;
+  margin-bottom: 44px;
+  margin-top: 20px;
+  gap: 24px;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
-.social-links .link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.icon-socmedia-1 {
+  background-color: #4d5ae5;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #03a9f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.social-links .link:hover {
-  background-color: #fff;
+.icon-socmedia-1 a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
-.social-links .icon {
-  fill: #fff;
+.icon-socmedia-1 svg {
+  fill: #f4f4fd;
 }
 
-.social-links .link:hover .icon {
-  fill: #03a9f4;
+.icon-socmedia-1:hover,
+.icon-socmedia-1:focus {
+  background-color: #404bbf;
 }
+
+.icon-socmedia-1:hover svg,
+.icon-socmedia-1:focus svg {
+  fill: #ffffff;
+}
+
 /* ====================== TEAM ====================== */
 .team {
   padding: 120px 0;
@@ -347,6 +362,35 @@ body {
     0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
+/* Нові стилі для зображень та overlay */
+.portfolio-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(77, 90, 229, 0.9);
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  transform: translateY(0);
+}
+
 .portfolio-item-text {
   padding: 32px 16px;
   border-left: 1px solid #e7e9fc;
@@ -355,6 +399,7 @@ body {
 }
 
 /* ====================== FOOTER ====================== */
+/* ====================== FOOTER ====================== */
 .footer {
   background-color: #2e2f42;
   padding: 100px 0;
@@ -362,6 +407,8 @@ body {
 
 .footer-wrapper {
   display: flex;
+  align-items: baseline; /* вирівнювання по базисній лінії */
+  gap: 120px; /* замість margin-left */
 }
 
 .footer-logo {
@@ -384,6 +431,54 @@ body {
   text-align: left;
 }
 
+.social-media-text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.icongroup-socmedia-2 {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon-socmedia-2 {
+  background-color: #4d5ae5;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-socmedia-2 a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.icon-socmedia-2 svg {
+  fill: #f4f4fd;
+}
+
+.icon-socmedia-2:hover,
+.icon-socmedia-2:focus {
+  background-color: #31d0aa;
+}
+
+.icon-socmedia-2:hover svg,
+.icon-socmedia-2:focus svg {
+  fill: #ffffff;
+}
+
 /* ====================== VISUALLY HIDDEN ====================== */
 .visually-hidden {
   position: absolute;
@@ -397,31 +492,7 @@ body {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-.icongroup-socmedia-1 {
-  display: flex;
-  align-items: center;
-  margin-bottom: 44px;
-  margin-top: 20px;
-  gap: 24px;
-  margin-left: 16px;
-  margin-right: 16px;
-}
-.icon-socmedia-1 {
-  background-color: #4d5ae5;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.social-media-text {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: #fff;
-}
+
 .icongroup-socmedia-2 {
   display: flex;
   align-items: center;
@@ -436,6 +507,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.social-media-text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #fff;
 }
 .social-media-footer {
   display: flex;
