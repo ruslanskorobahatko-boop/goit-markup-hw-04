@@ -1,3 +1,4 @@
+/* ====================== RESET & BASE ====================== */
 * {
   box-sizing: border-box;
 }
@@ -24,14 +25,24 @@ a {
 
 img {
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
+body {
+  font-family: "Roboto", sans-serif;
+  color: #434455;
+  line-height: 1.5;
+}
+
+/* ====================== CONTAINER ====================== */
 .container {
   max-width: 1158px;
   margin: 0 auto;
   padding: 0 15px;
 }
 
+/* ====================== HEADER ====================== */
 .header {
   background-color: #fff;
   border-bottom: 1px solid #e7e9fc;
@@ -40,11 +51,10 @@ img {
 .header-wrapper {
   display: flex;
   align-items: center;
+  min-height: 72px; /* добавил для стабильности */
 }
 
 .header-logo-wrapper {
-  display: flex;
-  align-items: center;
   margin-right: 76px;
 }
 
@@ -78,13 +88,36 @@ img {
   color: #2e2f42;
   display: block;
   padding: 24px 0;
+  position: relative;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Hover + Focus + Active состояние */
 .header-link:hover,
-.header-link:focus {
+.header-link:focus,
+.header-link.active {
   color: #404bbf;
 }
 
+.header-link-1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 4px;
+  background-color: #404bbf;
+  border-radius: 2px;
+  transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-link:hover::after,
+.header-link:focus::after,
+.header-link.active::after {
+  width: 100%;
+}
+
+/* ====================== ADDRESS ====================== */
 .header-address {
   font-style: normal;
   margin-left: auto;
@@ -103,6 +136,7 @@ img {
   color: #434455;
   display: block;
   padding: 24px 0;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-address-link:hover,
@@ -110,10 +144,27 @@ img {
   color: #404bbf;
 }
 
+/* ====================== HERO ====================== */
 .hero {
   background-color: #2e2f42;
+  background-image:
+    linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+    url("../images/hero-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  min-height: 600px;
   padding: 188px 0;
   text-align: center;
+
+  background-image:
+    linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+    url("/images/people-office.png");
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .hero-title {
@@ -124,7 +175,6 @@ img {
   line-height: 1.07143;
   letter-spacing: 0.02em;
   color: #fff;
-  font-family: "Roboto", sans-serif;
 }
 
 .hero-button {
@@ -138,6 +188,7 @@ img {
   font-family: "Roboto", sans-serif;
   border: 0;
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:hover,
@@ -145,6 +196,7 @@ img {
   background-color: #404bbf;
 }
 
+/* ====================== FEATURES ====================== */
 .features {
   padding: 120px 0;
 }
@@ -174,7 +226,55 @@ img {
   letter-spacing: 0.02em;
   color: #434455;
 }
+.features-item ::before {
+  padding: 24px 100px;
+  background-color: #4d5ae5;
+}
+.item-wrapper {
+  flex: auto;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 24px;
+  padding-top: 24px;
+  padding-left: 100px;
+  padding-right: 100px;
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  width: 264px;
+  height: 112px;
+  background: #f4f4fd;
+  margin-bottom: 8px;
+}
 
+.social-links {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  align-self: flex-end;
+}
+
+.social-links .link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #03a9f4;
+}
+
+.social-links .link:hover {
+  background-color: #fff;
+}
+
+.social-links .icon {
+  fill: #fff;
+}
+
+.social-links .link:hover .icon {
+  fill: #03a9f4;
+}
+/* ====================== TEAM ====================== */
 .team {
   padding: 120px 0;
   background: #f4f4fd;
@@ -187,7 +287,6 @@ img {
   letter-spacing: 0.02em;
   text-align: center;
   color: #2e2f42;
-  margin-bottom: 72px;
 }
 
 .team-list {
@@ -201,12 +300,19 @@ img {
   border-radius: 0 0 4px 4px;
   overflow: hidden;
   flex-basis: calc((100% - 72px) / 4);
+  box-shadow:
+    0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16),
+    0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
 .team-item-text {
   padding: 32px 16px;
+  padding-top: 32px;
+  padding-bottom: 0;
 }
 
+/* ====================== PORTFOLIO ====================== */
 .portfolio {
   padding: 120px 0;
 }
@@ -227,10 +333,18 @@ img {
   column-gap: 24px;
   row-gap: 48px;
 }
+
 .portfolio-item {
   flex-basis: calc((100% - 48px) / 3);
   overflow: hidden;
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-item:hover {
+  box-shadow:
+    0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16),
+    0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
 .portfolio-item-text {
@@ -240,6 +354,7 @@ img {
   border-bottom: 1px solid #e7e9fc;
 }
 
+/* ====================== FOOTER ====================== */
 .footer {
   background-color: #2e2f42;
   padding: 100px 0;
@@ -247,9 +362,6 @@ img {
 
 .footer-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
 }
 
 .footer-logo {
@@ -272,6 +384,7 @@ img {
   text-align: left;
 }
 
+/* ====================== VISUALLY HIDDEN ====================== */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -283,4 +396,49 @@ img {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+.icongroup-socmedia-1 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 44px;
+  margin-top: 20px;
+  gap: 24px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.icon-socmedia-1 {
+  background-color: #4d5ae5;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.social-media-text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+.icongroup-socmedia-2 {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  gap: 16px;
+}
+.icon-socmedia-2 {
+  background-color: #4d5ae5;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.social-media-footer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 120px;
 }
