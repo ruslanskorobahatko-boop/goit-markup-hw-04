@@ -96,7 +96,12 @@ body {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Псевдоелемент – за замовчуванням прихований */
+/* ✅ ВИПРАВЛЕНО: зміна кольору при ховері/фокусі */
+.header-link:hover,
+.header-link:focus {
+  color: #404bbf;
+}
+
 .header-link::after {
   content: "";
   position: absolute;
@@ -109,13 +114,11 @@ body {
   transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Ховер – анімація появи */
 .header-link:hover::after,
 .header-link:focus::after {
   width: 100%;
 }
 
-/* Активне посилання – підкреслення завжди видиме, без анімації */
 .header-link.active::after {
   width: 100%;
   transition: none;
@@ -278,12 +281,12 @@ body {
   padding: 32px 16px;
 }
 
-/* Соціальні мережі команди – виправлено: фон і перехід на <a> */
+/* ✅ ВИПРАВЛЕНО: відступ між кнопками 24px */
 .icongroup-socmedia-1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 24px;
   margin-top: 8px;
 }
 
@@ -304,7 +307,6 @@ body {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Правильний колір при ховері / фокусі – #404bbf (відповідно до вимог) */
 .icon-socmedia-1 a:hover,
 .icon-socmedia-1 a:focus {
   background-color: #404bbf;
@@ -314,9 +316,10 @@ body {
   fill: #f4f4fd;
 }
 
+/* ✅ ВИПРАВЛЕНО: колір іконки не змінюється при ховері */
 .icon-socmedia-1 a:hover svg,
 .icon-socmedia-1 a:focus svg {
-  fill: #ffffff;
+  fill: #f4f4fd;
 }
 
 /* ====================== PORTFOLIO ====================== */
@@ -358,7 +361,7 @@ body {
   overflow: hidden;
 }
 
-/* Оверлей – суцільний колір #4d5ae5 (без прозорості) */
+/* ✅ ВИПРАВЛЕНО: додано letter-spacing */
 .portfolio-overlay {
   position: absolute;
   bottom: 0;
@@ -375,6 +378,7 @@ body {
   color: #f4f4fd;
   font-size: 16px;
   line-height: 1.5;
+  letter-spacing: 0.02em;
   text-align: center;
 }
 
@@ -459,7 +463,6 @@ body {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Футер – ховер на #31d0aa (згідно з вимогами) */
 .icon-socmedia-2 a:hover,
 .icon-socmedia-2 a:focus {
   background-color: #31d0aa;
@@ -486,7 +489,4 @@ body {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
-}
-.header-link.active {
-  color: #404bbf;
 }
